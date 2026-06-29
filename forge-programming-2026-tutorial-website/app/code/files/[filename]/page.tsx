@@ -7,7 +7,7 @@ import FolderBar from "@/components/FolderBar"
 export default async function FilePage({params}: {params: Promise<{filename: string}>}) {
     const {filename} = await params;
 
-    const findFile = await glob(`4421-robot-code-2026/robot/subsystems/${filename}.java`, {cwd: process.cwd()});
+    const findFile = await glob(`4421-robot-code-2026/robot/**/${filename}.java`, {cwd: process.cwd()});
 
     const filePath = path.join(process.cwd(), findFile[0]);
         const dispFileCode = fs.readFileSync(filePath, "utf-8");
@@ -16,7 +16,7 @@ export default async function FilePage({params}: {params: Promise<{filename: str
     
         return (
             <main className="flex flex-col h-screen max-h-screen overflow-hidden">
-                <h1 className="font-bold p-4 text-5xl font-mono ml-5 flex-none">CODE</h1>
+                <h1 className="font-bold p-4 text-5xl font-mono ml-5 flex-none">{filename}.java</h1>
                 <div className="min-h-0 flex flex-1 border-t border-black">
                     <div className="h-full overflow-y-auto flex-none">
                         <FolderBar />
