@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import {FaFolder} from "react-icons/fa";
+import {FaFile} from "react-icons/fa";
+import {FaJava} from "react-icons/fa";
 
 export default function FolderBar() {
 
@@ -12,7 +15,7 @@ export default function FolderBar() {
     }
 
     const FileTreeFormatNode: FileTreeFormatNode = {
-        name: "robot",
+        name: "src/main/robot",
         type: "folder",
         children: [
             {
@@ -57,7 +60,7 @@ export default function FolderBar() {
 
     const fatNavLinkAnimationClass = "cursor-pointer text-gray-600 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-black after:transition-all after:duration-150 hover:after:w-full"
 
-    const fatNavLinkAnimationClassBlue = "cursor-pointer text-blue-800"
+    const fatNavLinkAnimationClassBlue = "flex cursor-pointer text-blue-800"
 
 
     function TreeNode({ fileTreeFormatNode } : { fileTreeFormatNode: FileTreeFormatNode }) {
@@ -70,7 +73,8 @@ export default function FolderBar() {
             return (
                 <Link href={`/code/files/${fileTreeFormatNode.name.replace(".java", "")}`}>
                 
-                <div>
+                <div className="flex">
+                    <FaJava size={14} color="#e06900" className="pr-1" />
                     <span className={fatNavLinkAnimationClass}>{fileTreeFormatNode.name}</span>
                 </div>
                 </Link>
@@ -80,7 +84,8 @@ export default function FolderBar() {
             return (
                 <div>
                     <div onClick={toggle} className={fatNavLinkAnimationClassBlue}>
-                        <span>{fileTreeFormatNode.name}</span>
+                        <FaFolder size={18} color="blue" className="pr-1" />
+                        <span>/{fileTreeFormatNode.name}</span>
 
                     </div>
 
