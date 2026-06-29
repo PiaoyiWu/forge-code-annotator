@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function FolderBar() {
 
@@ -67,9 +68,12 @@ export default function FolderBar() {
         if (fileTreeFormatNode.type == "file") {
 
             return (
+                <Link href={`/code/files/${fileTreeFormatNode.name.replace(".java", "")}`}>
+                
                 <div>
                     <span className={fatNavLinkAnimationClass}>{fileTreeFormatNode.name}</span>
                 </div>
+                </Link>
             )
 
         } else {
