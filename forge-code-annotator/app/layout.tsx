@@ -4,8 +4,8 @@ import Navbar from "@/components/Navbar";
 
 
 export const metadata: Metadata = {
-  title: "Forge Programmer's Tutorial",
-  description: "A guide to being a programmer in the big '27 by Piaoyi Wu and others.",
+  title: "Forge Code Annotated",
+  description: "Guide.",
 };
 
 export default function RootLayout({
